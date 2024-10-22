@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CGV</title>
+        <link rel="stylesheet" href="./source/css/reset.css" />
+        <link rel="stylesheet" href="./source/css/style.css" />
+        <style>
+            /* 기본 스타일 설정 */
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+
+            #video-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                position: fixed; /* 첫 번째 섹션을 고정 */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                z-index: 10;
+                transition: transform 0.7s ease-in-out;
+            }
+
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+
+            #intro-section {
+                background-image: url(../background/intro.jpg);
+                min-height: 100vh;
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative; /* 두 번째 섹션은 자연스럽게 이어짐 */
+                z-index: 1; /* 첫 번째 섹션 아래에 위치 */
+            }
+
+            .section {
+                min-height: 100vh;
+                padding: 50px;
+                background-color: #ddd;
+            }
+
+            /* 스크롤바 숨기기 */
+            .scroll-disabled {
+                overflow-y: hidden;
+            }
+
+            /* 스크롤바 활성화 */
+            .scroll-enabled {
+                overflow-y: auto;
+            }
+            .long {
+            height: 2500px;
+            background-image: linear-gradient(#aaaa, #222);
+        }
+        </style>
+    </head>
+
+    <body class="scroll-disabled">
+        <header>
+            <nav class="header-nav">
+                <h1 class="cgv-logo-area"></h1>
+                <ul class="header-menu">
+                    <li class="menu-list"><a href="#">Movie</a></li>
+                    <li class="menu-list"><a href="#">Theater</a></li>
+                    <li class="menu-list"><a href="#">Store</a></li>
+                    <li class="menu-list"><a href="#">Event</a></li>
+                    <li class="menu-list"><a href="#">Benefit</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="ticket-btn">TICKET</a>
+        </header>
+
+        <!-- 첫 번째 섹션 (비디오) -->
+        <section id="video-section">
+            <video
+                src="../요한/CGV-Renewal-main/CGV-Renewal-main/source/fourdx_video.mp4"
+                autoplay
+                muted
+                loop
+            ></video>
+            <div class="mouse-box">
+                <div class="mouse-body">
+                    <div class="mouse-btn"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 두 번째 섹션 (소개) -->
+        <section id="intro-section" class="section long">소개 섹션</section>
+        <section id="tech-section" class="section long">기술 섹션</section>
+        <section id="prestige-section" class="section long">프레스티지 섹션</section>
+        <section id="customer-section" class="section long">고객센터</section>
+
+        <script>
+            // let currentSection = 0;
+            // const videoSection = document.querySelector("#video-section");
+            // let isScrolling = false; // 스크롤 잠금 상태
+
+            // // 디바운스 함수 생성
+            // function debounce(func, wait) {
+            //     let timeout;
+            //     return function (...args) {
+            //         clearTimeout(timeout);
+            //         timeout = setTimeout(() => {
+            //             func.apply(this, args);
+            //         }, wait);
+            //     };
+            // }
+
+            // // 스크롤 다운 시 첫 번째 섹션만 이동, 두 번째 섹션은 그대로 유지
+            // document.addEventListener("wheel", (event) => {
+            //     if (currentSection === 0 && !isScrolling) {
+            //         if (event.deltaY > 0) {
+            //             moveToNextSection();
+            //         }
+            //     }
+            // });
+
+            // // 첫 번째 섹션만 스크롤하고 두 번째 섹션은 고정
+            // function moveToNextSection() {
+            //     isScrolling = true; // 스크롤 잠금
+            //     videoSection.style.transform = `translateY(-100vh)`; // 첫 번째 섹션만 이동
+
+            //     setTimeout(() => {
+            //         isScrolling = false; // 애니메이션 완료 후 스크롤 잠금 해제
+            //         currentSection = 1;
+            //         document.body.classList.remove("scroll-disabled"); // 일반 스크롤 활성화
+            //         document.body.classList.add("scroll-enabled");
+            //         videoSection.style.display = "none"; // 첫 번째 섹션 사라짐
+            //     }, 700); // 애니메이션 시간이 끝날 때까지 잠금 유지
+            // }
+
+            // // 스크롤 맨 위로 올릴 때 첫 번째 섹션 복귀 처리
+            // document.addEventListener("scroll", debounce(() => {
+            //     if (window.scrollY === 0 && currentSection === 1) {
+            //         resetToFirstSection();
+            //     }
+            // }, 200)); // 200ms 디바운스 적용
+
+            // // 첫 번째 섹션 복귀 처리
+            // function resetToFirstSection() {
+            //     currentSection = 0;
+            //     document.body.classList.remove("scroll-enabled");
+            //     document.body.classList.add("scroll-disabled");
+            //     videoSection.style.transform = `translateY(0)`; // 첫 번째 섹션 원래 위치로 복귀
+            //     videoSection.style.display = "flex"; // 다시 나타남
+            // }
+
+            const section = document.getElementsByTagName("section");
+            let index = 0;
+            let move = false;
+            let 벗어남 = false;
+
+            window.addEventListener(
+                "mousewheel",
+                (e) => {
+                    if (
+                        window.scrollY <
+                        window.innerHeight * (section.length - 1)
+                    ) {
+                        e.preventDefault();
+                        if (!move) {
+                            move = true;
+                            if (e.deltaY < 0) {
+                                index--;
+                            } else {
+                                index++;
+                            }
+                            index = index < 0 ? 0 : index;
+                            index =
+                                index >= section.length - 1
+                                    ? section.length - 1
+                                    : index;
+                            console.log(index);
+                            window.scrollTo({
+                                top: index * window.innerHeight,
+                                behavior: "smooth",
+                            });
+                            setTimeout(() => {
+                                move = false;
+                            }, 500);
+                        }
+                    } else {
+                        벗어남 = true;
+                    }
+                },
+                { passive: false }
+            );
+        </script>
+    </body>
+</html>

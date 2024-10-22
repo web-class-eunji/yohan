@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>스크롤페이드인</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                height: 3000px;
+            }
+
+            .content-container {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .content {
+                height: 50px;
+                text-align: center;
+                margin: 600px auto;
+                font-size: 100px;
+            }
+
+            .fade {
+                opacity: 0;
+                transition: 1s;
+            }
+
+            .to-top {
+                transform: translateY(-200px);
+            }
+
+            .to-bottom {
+                transform: translateY(200px);
+            }
+
+            .to-left {
+                transform: translateX(-200px);
+            }
+
+            .to-right {
+                transform: translateX(200px);
+            }
+
+            .to-bottom-right {
+                transform: translate(200px, 200px);
+            }
+
+            .in {
+                opacity: 1;
+                transform: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content-container">
+            <h2 class="content fade to-top">위에서 나오기</h2>
+            <h2 class="content fade to-bottom">밑에서 나오기</h2>
+            <h2 class="content fade to-left">왼쪽에서 나오기</h2>
+            <h2 class="content fade to-right">오른쪽에서 나오기</h2>
+            <h2 class="content fade to-bottom-right">오른쪽 아래에서 나오기</h2>
+        </div>
+
+        <script>
+            const content = document.getElementsByClassName("content");
+            window.addEventListener("scroll", () => {
+                const winH = window.innerHeight;
+
+                for (let i = 0; i < content.length; i++) {
+                    const contentTop = content[i].getBoundingClientRect().top;
+                    if (contentTop - winH < 0) {
+                        content[i].classList.add("in");
+                    }
+                    if (contentTop - winH > 0) {
+                        content[i].classList.remove("in");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullpage and Normal Scroll</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .fullpage {
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        .normal {
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        #section2, #section3 {
+            height: auto; /* 일반 스크롤이 적용될 섹션은 height를 auto로 설정 */
+        }
+    </style>
+</head>
+<body>
+    <div class="section fullpage" id="section1">
+        <h1>Fullpage Section</h1>
+    </div>
+    <div class="section normal" id="section2">
+        <h1>Normal Scroll Section 1</h1>
+        <p>Content goes here...</p>
+    </div>
+    <div class="section normal" id="section3">
+        <h1>Normal Scroll Section 2</h1>
+        <p>More content...</p>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            let section1 = document.getElementById('section1');
+            let scrollPosition = window.scrollY;
+
+            // 첫 번째 섹션에서만 풀페이지 스크롤을 적용
+            if (scrollPosition < window.innerHeight) {
+                document.body.style.overflowY = 'hidden'; // 스크롤 잠금
+            } else {
+                document.body.style.overflowY = 'auto'; // 일반 스크롤 활성화
+            }
+        });
+
+        window.addEventListener('wheel', function(event) {
+            let section1 = document.getElementById('section1');
+            let scrollPosition = window.scrollY;
+
+            // 스크롤을 위로 돌릴 때 다시 첫 번째 섹션을 풀페이지로
+            if (scrollPosition < window.innerHeight && event.deltaY < 0) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
