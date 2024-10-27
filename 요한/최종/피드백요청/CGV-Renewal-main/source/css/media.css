@@ -1,0 +1,50 @@
+@media screen and (max-width: 1186px) {
+    
+}
+
+@media screen and (max-width: 1024px) {
+
+    .section-container{
+        width: 100%;
+    }
+
+    header{
+        padding: 16px 32px;
+        background-color: rgba(35, 35, 35, 0.5);
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 99;
+    }
+
+    .cgv-logo,
+    .cgv-logo>svg {
+        width: 100px;
+        height: 44px;
+    }
+
+    .header-menu{
+        gap: 32px;
+    }
+
+    .menu-list a{
+        font-size: 16px;
+    }
+
+    .ticket-btn{
+        margin-left: auto;
+        padding: 10px 32px;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    #video-section{
+        position: relative;
+    }
+
+
+}

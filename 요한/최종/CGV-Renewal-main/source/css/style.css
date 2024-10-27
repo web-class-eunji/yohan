@@ -172,7 +172,7 @@ video{
 }
 
 #intro-section{
-    background-image: url(/source/background/intro.jpg);
+    background-image: url(../background/intro.jpg);
     height: 100vh;
     background-size: cover;
     background-position: 50% 50%;
