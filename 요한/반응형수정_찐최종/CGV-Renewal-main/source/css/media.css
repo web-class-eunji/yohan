@@ -1,0 +1,349 @@
+@media screen and (max-width: 1186px) {
+    .video-section-video-view {
+        display: none;
+    }
+
+    .video-section-img-view {
+        display: block;
+        background-image: url(../image/background/video.jpg);
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .section-container {
+        width: 100%;
+    }
+
+    .article-container {
+        width: 100%;
+        padding: 0 32px;
+        box-sizing: border-box;
+    }
+
+    .footer-nav {
+        gap: 8px;
+    }
+
+    .footer-nav a {
+        font-size: 12px;
+    }
+
+    .company-info-text {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    select {
+        font-size: 12px;
+        padding: 4px 8px;
+        transition: 0.2s;
+    }
+
+    .go-btn {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 6px;
+    }
+
+    .section-container.customer {
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 878px) {
+    .web-br {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .header-menu {
+        display: none;
+    }
+    
+    .mouse-box{
+        display: none;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    .wrap {
+        transform: translateY(0);
+    }
+
+    #video-section {
+        overflow: auto;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 808px) {
+    .footer-container{
+        margin-top: 40px;
+    }
+
+    .footer-nav {
+        flex-wrap: wrap;
+    }
+
+    .company-info{
+        flex-direction: column;
+    }
+
+    .company-link{
+        align-self: flex-start;
+        margin-left: 16px;
+        margin-top: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cgv-logo,
+    .cgv-logo>svg {
+        width: 100px;
+        height: 43px;
+    }
+
+    .ticket-btn {
+        font-size: 16px;
+    }
+    
+    .title-container.tech br {
+        display: block;
+    }
+
+    .section-container {
+        padding: 32px 16px;
+        flex-direction: column;
+    }
+
+    .theater-box.tech {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+        margin-left: 0;
+        padding: 32px;
+        box-sizing: border-box;
+    }
+
+    .theater-box.tech .learn-more-btn{
+        align-self: center;
+    }
+
+    .content-area{
+        align-self: center;
+        margin-right: 0;
+        margin-bottom: 32px;
+    }
+
+    .fourdx-icon{
+        width: 58px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-circle{
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon-circle img{
+        transform: scale(80%);
+    }
+    
+    .fourdx-content-box{
+        padding: 12px 20px
+    }
+
+    .imax-info {
+        padding: 20px 14px;
+    }
+
+    .imax-info-wrap {
+        width: 110px;
+        border-radius: 14px;
+    }
+
+    .imax-info-title p:first-child{
+        font-size: 12px;
+    }
+    
+    .imax-info-title p:nth-child(2){
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .imax-info-text {
+        display: none;
+    }
+
+    .starium-info{
+        gap: 8px;
+        padding: 10px 20px;
+    }
+
+    .starium-icon{
+        width: 45px;
+        height: 45px;
+    }
+
+    .starium-info-text-box p:first-child{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .starium-info-text-box p:nth-child(2){
+        font-size: 12px;
+    }
+
+    .article-container{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .customer-info-area{
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 100px;
+    }
+
+    .dot {
+        display: none;
+    }
+
+    .company-info-text br {
+        display: inline;
+    }
+
+    .copyright {
+        margin-top: 16px;
+    }
+
+    .mobile-br{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .ticket-btn {
+        font-size: 14px;
+        padding: 8px 24px;
+    }
+
+    .title-area h2{
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .title-area p{
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .ultra-4dx-logo{
+        width: 168px;
+    }
+
+    .imax-logo{
+        width: 83px;
+    }
+
+    .starium-logo{
+        width: 114px;
+    }
+
+    .chef-logo{
+        width: 190px;
+    }
+
+    .livingroom-logo{
+        width: 206px;
+    }
+    
+    .suite-logo{
+        width: 161px;
+    }
+    
+    .foret-logo{
+        width: 186px;
+    }
+
+    .theater-name p{
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .learn-more-btn{
+        font-size: 12px;
+    }
+
+    .article-box h2{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .article-box p{
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+    }
+
+    .title-container.end{
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cgv-logo,
+    .cgv-logo>svg {
+        width: 75px;
+        height: 32px;
+    }
+
+    .ticket-btn {
+        font-size: 12px;
+        padding: 8px 22px;
+    }
+
+    .theater-box.tech {
+        padding: 32px 8px;
+    }
+
+    .imax-content-box{
+        gap: 8px;
+    }
+
+    .interactive-text-area{
+        left: 0;
+        right: -5%;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .imax-br{
+        display: block;
+    }
+
+    .imax-info-wrap {
+        width: 105px;
+        border-radius: 14px;
+    }
+
+    .title-area h2{
+        padding: 8px;
+    }
+}

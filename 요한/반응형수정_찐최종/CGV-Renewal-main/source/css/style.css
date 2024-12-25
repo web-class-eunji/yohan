@@ -8,13 +8,12 @@
 body{
     background-color: #151515;
     font-family: 'Pretendard-Regular';
+    overflow: hidden;
 }
 
-/* body,
-html{
-    height: 100%;
-    overflow: hidden;
-} */
+.wrap {
+    transform: translateY(100vh);
+}
 
 header{
     padding: 16px 32px;
@@ -38,6 +37,11 @@ header{
 .cgv-logo > svg {
     width: 136px;
     height: 60px;
+}
+
+.hamburger{
+    display: none;
+    align-self: center;
 }
 
 .header-menu{
@@ -154,15 +158,19 @@ header{
     transition: transform 0.7s linear;
 }
 
-/* #video-section > video {
-    height: 100vh;
-} */
+.video-section-img-view{
+    display: none;
+}
 
-#video-section.scroll-disabled {
+.scrolled #video-section{
+    transform: translateY(-100%);
+}
+
+.scroll-disabled {
     overflow-y: hidden;
 }
 
-#video-section.scroll-enabled {
+.scroll-enabled {
     overflow-y: auto;
 }
 
@@ -172,10 +180,10 @@ video{
 }
 
 #intro-section{
-    background-image: url(../background/intro.jpg);
+    background-image: url(../image/background/intro.jpg);
     height: 100vh;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 48% 50%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -185,7 +193,7 @@ video{
 
 .interactive-text-area{
     position: relative;
-    top: -5%;
+    top: -6%;
     left: -1%;
 }
 
@@ -202,28 +210,41 @@ video{
     margin-top: 150px;
 }
 
-.title-container h2{
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-}
-
 .title-container.tech{
-    background-image: url(/source/background/title-tech.jpg);
+    background-image: url(../image/background/title-tech.jpg);
 }
 
 .title-container.prestige{
-    background-image: url(/source/background/title-prestige.jpg);
+    background-image: url(../image/background/title-prestige.jpg);
+}
+
+.title-container.tech br{
+    display: none;
+}
+
+.web-br{
+    display: none;
+}
+
+.mobile-br{
+    display: none;
 }
 
 .title-area{
     text-align: center;
-    line-height: 30px;
+}
+
+.title-area h2{
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    padding: 16px;
 }
 
 .title-area p{
     font-size: 14px;
     color: white;
+    line-height: 20px;
 }
 
 .section-container-wrap{
@@ -236,16 +257,16 @@ video{
 }
 
 .section-container-wrap.ultra-4dx{
-    background-image: url(/source/background/ultra-4dx.jpg);
+    background-image: url(../image/background/ultra-4dx.jpg);
     
 }
 
 .section-container-wrap.imax{
-    background-image: url(/source/background/imax.jpg);
+    background-image: url(../image/background/imax.jpg);
 }
 
 .section-container-wrap.starium{
-    background-image: url(/source/background/starium.jpg);
+    background-image: url(../image/background/starium.jpg);
 }
 
 .section-container{
@@ -275,6 +296,7 @@ video{
 }
 
 .section-container.customer{
+    max-width: 1200px;
     justify-content: center;
     align-items: center;
 }
@@ -284,7 +306,7 @@ video{
     flex-direction: column;
     gap: 32px;
     margin-top: 108px;
-    margin-left: 150px;
+    margin-left: clamp(8px, 10vw, 150px);
 }
 
 .theater-box.prestige{
@@ -316,7 +338,7 @@ video{
 }
 
 .learn-more-btn{
-    display: inline-block;
+    display: block;
     align-self: flex-start;
     text-decoration: none;
     color: white;
@@ -341,9 +363,8 @@ video{
     align-items: center;
     align-self: flex-end;
     margin-bottom: 57px;
-    margin-right: 150px;
+    margin-right: clamp(8px, 10vw, 150px);
     gap: 16px;
-
 }
 
 .article-box{
@@ -366,12 +387,17 @@ video{
     line-height: 18px;
 }
 
+.imax-br{
+    display: none;
+}
+
 .fourdx-content-box{
-    width: 328px;
+    max-width: 328px;
     background-color: rgba(228, 35, 19, 0.5);
-    border-radius: 14px;
+    border-radius: 18px;
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.4);
     transition: background-color 0.2s;
+    padding: 16px 24px
 }
 
 .fourdx-content-box:hover{
@@ -382,9 +408,7 @@ video{
 
 .fourdx-icon-list{
     display: flex;
-    flex-wrap: wrap;
-    padding: 16px 24px;
-    row-gap: 16px;
+    padding: 8px 0px;
 }
 
 .fourdx-icon{
@@ -394,7 +418,6 @@ video{
     align-items: center;
     gap: 8px;
 }
-
 
 .fourdx-icon p{
     font-size: 12px;
@@ -492,7 +515,6 @@ video{
 
 .imax-logo{
     width: 88px;
-    height: 25px;
 }
 
 .imax-content-box{
@@ -528,15 +550,15 @@ video{
 }
 
 .imax-icon.camera{
-    background-image: url(/source/icon/imax-icon_camera.svg);
+    background-image: url(../image/icon/imax-icon_camera.svg);
 }
 
 .imax-icon.screen{
-    background-image: url(/source/icon/imax-icon_screen.svg);
+    background-image: url(../image/icon/imax-icon_screen.svg);
 }
 
 .imax-icon.sound{
-    background-image: url(/source/icon/imax-icon_sound.svg);
+    background-image: url(../image/icon/imax-icon_sound.svg);
 }
 
 .imax-info-title{
@@ -568,7 +590,6 @@ video{
 
 .starium-logo{
     width: 115px;
-    height: 25px;
 }
 
 .starium-content-box{
@@ -603,15 +624,15 @@ video{
 }
 
 .starium-icon.super-giant{
-    background-image: url(/source/icon/starium-icon_screen.svg);
+    background-image: url(../image/icon/starium-icon_screen.svg);
 }
 
 .starium-icon.four-k{
-    background-image: url(/source/icon/starium-icon_resol.svg);
+    background-image: url(../image/icon/starium-icon_resol.svg);
 }
 
 .starium-icon.most-dynamic{
-    background-image: url(/source/icon/starium-icon_sound.svg);
+    background-image: url(../image/icon/starium-icon_sound.svg);
 }
 
 .starium-info-text-box{
@@ -637,15 +658,19 @@ video{
 }
 
 .article-container{
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    column-gap: 2%;
+    row-gap: 32px;
+    padding: 0 32px;
+    box-sizing: border-box;
 }
 
 .prestige-theater{
-    width: 584px;
-    height: 378px;
+    flex: 1 1 48%;
+    max-width: 584px;
+    height: auto;
     border-radius: 28px;
     display: flex;
     align-items: center;
@@ -655,6 +680,7 @@ video{
 
 .prestige-theater img{
     transition: transform 0.5s;
+    width: 100%;
 }
 
 .prestige-theater img:hover{
@@ -664,33 +690,28 @@ video{
 
 .chef-logo{
     width: 220px;
-    height: 30px;
 }
 
 .livingroom-logo{
     width: 253px;
-    height: 27px;
 }
 
 .suite-logo{
     width: 184px;
-    height: 32px;
 }
 
 .foret-logo{
     width: 226px;
-    height: 34px;
 }
 
 #customer-section{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .customer-info-area{
     display: flex;
-    gap: 222px;
+    gap: clamp(8px, 10vw, 222px);
     margin-bottom: 150px;
 }
 
@@ -795,14 +816,17 @@ footer{
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin-top: 62px;
+    margin-top: 56px;
     margin-bottom: 56px;
     gap: 28px;
 }
 
 .footer-nav{
     display: flex;
+    justify-content: center;
     gap: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 .footer-nav a{
@@ -831,6 +855,11 @@ footer{
     color: white;
     font-size: 14px;
     line-height: 24px;
+    margin-left: 16px;
+}
+
+.company-info-text br{
+    display: none;
 }
 
 .footer-emport{
@@ -839,6 +868,7 @@ footer{
 
 .company-link{
     align-self: flex-end;
+    margin-right: 16px;
 }
 
 .go-btn{
